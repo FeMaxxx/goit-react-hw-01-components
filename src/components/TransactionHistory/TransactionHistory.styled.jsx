@@ -22,7 +22,7 @@ export const Body = styled.tbody`
   background-color: rgba(54, 89, 103, 0.1);
   color: rgba(0, 0, 0, 0.8);
 
-  &:nth-child(2n + 2) {
+  &:nth-of-type(2n + 2) {
     background-color: rgba(144, 238, 144, 0.318);
   }
 `;
