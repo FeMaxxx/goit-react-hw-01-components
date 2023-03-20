@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const ProfileBox = styled.div`
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 60px;
   width: 280px;
   background-color: #fff;
   border-radius: 5px;

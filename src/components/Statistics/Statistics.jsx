@@ -1,33 +1,48 @@
 import PropTypes from "prop-types";
-// import {} from "./Statistics.styled";
+import {
+  Title,
+  Statistic,
+  StatList,
+  Item,
+  Label,
+  Percentage,
+} from "./Statistics.styled";
 
-export const Statistics = ({ data }) => {
-  const { label, percentage } = data;
-
+export const Statistics = ({ title, data }) => {
   return (
-    <section class="statistics">
-      <h2 class="title">Upload stats</h2>
+    <Statistic>
+      {title && <Title>{title}</Title>}
 
-      <ul class="stat-list">
-        <li class="item">
-          <span class="label">.docx</span>
-          <span class="percentage">4%</span>
-        </li>
-        <li class="item">
-          <span class="label">.mp3</span>
-          <span class="percentage">14%</span>
-        </li>
-        <li class="item">
-          <span class="label">.pdf</span>
-          <span class="percentage">41%</span>
-        </li>
-        <li class="item">
-          <span class="label">.mp4</span>
-          <span class="percentage">12%</span>
-        </li>
-      </ul>
-    </section>
+      <StatList>
+        {data.map((element) => (
+          <Item style={{ backgroundColor: randomColor() }} key={element.id}>
+            <Label>{element.label}</Label>
+            <Percentage>{element.percentage}</Percentage>
+          </Item>
+        ))}
+      </StatList>
+    </Statistic>
   );
 };
 
-Statistics.prototype = {};
+Statistics.prototype = {
+  title: PropTypes.string.isRequired,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+};
+
+function randomColor() {
+  const randomInt = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
+
+  const h = randomInt(0, 360);
+  const s = randomInt(42, 98);
+  const l = randomInt(40, 90);
+  return `hsl(${h},${s}%,${l}%)`;
+}
