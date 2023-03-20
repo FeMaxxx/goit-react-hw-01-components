@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const Statistic = styled.section`
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 60px;
 
   width: 400px;
   background-color: #fff;

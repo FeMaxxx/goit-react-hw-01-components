@@ -1,12 +1,19 @@
 import { FriendListItem } from "components/FriendListItem/FriendListItem";
 import { FriendsList } from "./FriendList.styled";
 
-export const FriendList = (friends) => {
+export const FriendList = ({ friends }) => {
   return (
     <FriendsList>
-      <FriendListItem friends={friends} />
+      {friends.map((friend) => (
+        <FriendListItem
+          key={friend.id}
+          avatar={friend.avatar}
+          name={friend.name}
+          isOnline={friend.isOnline}
+        />
+      ))}
     </FriendsList>
   );
 };
 
-FriendList.prototype = {};
+// FriendList.prototype = {};
