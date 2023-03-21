@@ -4,6 +4,7 @@ export const History = styled.table`
   margin-left: auto;
   margin-right: auto;
   width: 500px;
+
   background-color: #fff;
   border-radius: 5px;
   border: 2px solid grey;
