@@ -25,9 +25,9 @@ export const Statistics = ({ title, data }) => {
   );
 };
 
-Statistics.prototype = {
-  title: PropTypes.string.isRequired,
-  stats: PropTypes.arrayOf(
+Statistics.propTypes = {
+  title: PropTypes.string,
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       label: PropTypes.string.isRequired,

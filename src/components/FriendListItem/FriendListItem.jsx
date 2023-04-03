@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import { Item, Status, Avatar, Name } from "./FriendListItem.styled";
 
 export const FriendListItem = (props) => {
-  const { id, name, avatar, isOnline } = props;
+  const { name, avatar, isOnline } = props;
   const backgroundColor = isOnline ? "green" : "red";
 
   return (
-    <Item key={id}>
+    <Item>
       <Status style={{ backgroundColor: backgroundColor }}></Status>
       <Avatar src={avatar} alt="User avatar" />
       <Name>{name}</Name>
@@ -15,7 +15,8 @@ export const FriendListItem = (props) => {
   );
 };
 
-FriendListItem.prototype = {
+FriendListItem.propTypes = {
   avatar: PropTypes.string.isRequired,
-  Name: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  isOnline: PropTypes.bool.isRequired,
 };
